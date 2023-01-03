@@ -12,8 +12,7 @@ module.exports = async () => {
       const numberOfParagraphs = Math.floor(4 * Math.random() + 3);
       let articleContent = "";
       for (let i = 0; i < numberOfParagraphs; i++) {
-        // TODO cambiar este seeder para que tire un texto igual al generado desde la página
-        // TODO asociar a cada artículo una imagen
+        // TODO add an image to each article
         articleContent += "<p>";
         articleContent += faker.lorem.sentences(10);
         articleContent += "</p>";
@@ -30,5 +29,3 @@ module.exports = async () => {
   await Article.bulkCreate(articles);
   console.log("[Database] Se corrió el seeder de Articles.");
 };
-
-// TODO imágenes de los artículos

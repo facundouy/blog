@@ -6,4 +6,4 @@ module.exports = (app) => {
   app.use("/admin", adminRoutes);
 };
 
-// TODO atajar todas las rutas que no existen
+// TODO get all unexisting routes
