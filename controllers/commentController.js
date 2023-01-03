@@ -18,7 +18,15 @@ async function show(req, res) {}
 async function create(req, res) {}
 
 // Store a newly created resource in storage.
-async function store(req, res) {}
+// TODO resolver el userId y articleId
+async function store(req, res) {
+  const comment = await Comment.create({
+    content: req.body.content,
+    userId: 1,
+    articleId: 1,
+  });
+  console.log(comment);
+}
 
 // Show the form for editing the specified resource.
 async function edit(req, res) {}

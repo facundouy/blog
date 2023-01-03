@@ -2,7 +2,14 @@ const { Article, Comment, User } = require("../models/models");
 
 async function showHome(req, res) {
   const articles = await Article.findAll({ include: User, order: [["id", "DESC"]] });
-  res.render("home", { articles });
+  function getFirstParagraph(article) {
+    const match = article.match(/<p>(.*?)<\/p>/);
+    if (!match) {
+      return "";
+    }
+    return match[1].replace(/<\/?p>/g, "");
+  }
+  res.render("home", { articles, getFirstParagraph });
 }
 
 async function showJson(req, res) {
@@ -22,7 +29,6 @@ async function show(req, res) {
     where: { articleId },
     order: [["id", "DESC"]],
   });
-
   res.render("article", { article, comments });
 }
 

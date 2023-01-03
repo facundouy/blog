@@ -27,10 +27,10 @@
     <link href="css/styles.css" rel="stylesheet" />
   </head>
   <body>
-    <!-- Navigation-->
+    <!-- Navigation -->
     <%- include("partials/nav") %>
-    <!-- Page Header-->
-    <header class="masthead" style="background-image: url('img/post-bg.jpg')">
+    <!-- Page Header -->
+    <header class="masthead" style="background-image: url('img/dark-food-photography.jpg')">
       <div class="container position-relative px-4 px-lg-5 header-container">
         <div class="row gx-4 gx-lg-5 justify-content-center align-items-center header-container">
           <div class="col-md-10 col-lg-8 col-xl-7">
@@ -42,15 +42,17 @@
         </div>
       </div>
     </header>
-    <!-- Post Content-->
+    <!-- Post Content -->
+    <!-- TODO agregar paginación -->
     <article class="mb-4">
       <div class="container px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
           <% for(const article of articles) { %>
           <div class="col-md-10 col-lg-8 col-xl-7">
-            <a href="/articles/<%= article.id %>"><h2 class="section-heading"><%= article.title.slice(0, -1) %></h2></a>
-            <% const cutHere = article.content.indexOf("</p>", 0) %>
-            <a href="/articles/<%= article.id %>"><p class="home-paragraph"><%- article.content.slice(3, cutHere) %></p></a>
+            <a href="/articles/<%= article.id %>"
+              ><h2 class="section-heading"><%= article.title %></h2>
+              <p class="home-paragraph"><%- getFirstParagraph(article.content) %></p></a
+            >
             <div class="text-end">
               <a class="link-primary fs-6" href="/articles/<%= article.id %>">Keep reading.</a>
             </div>
@@ -59,7 +61,7 @@
         </div>
       </div>
     </article>
-    <!-- Footer-->
+    <!-- Footer -->
     <%- include("partials/footer") %>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
