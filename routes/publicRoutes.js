@@ -11,5 +11,6 @@ publicRouter.get("/commjson", commentController.showJson);
 publicRouter.get("/contact", pagesController.showContact);
 publicRouter.get("/about", pagesController.showAbout);
 publicRouter.get("/articles/:id", articleController.show);
+publicRouter.post("/articles/:id", commentController.store);
 
 module.exports = publicRouter;

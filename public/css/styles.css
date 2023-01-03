@@ -11555,6 +11555,8 @@ header.masthead .post-heading .meta a {
   }
 }
 
+/* --CUSTOM CLASSES-- */
+
 .section-heading {
   font-size: 2.25rem;
   font-weight: 700;
@@ -11562,7 +11564,7 @@ header.masthead .post-heading .meta a {
 }
 
 .section-heading:hover {
-  color: #555;
+  color: #0085a1;
 }
 
 .home-paragraph {
@@ -11571,14 +11573,35 @@ header.masthead .post-heading .meta a {
 }
 
 .home-paragraph:hover {
-  color: #555;
+  color: #0085a1;
 }
 
 .comments-container {
   background-color: #eaeaea;
-  /* margin: 0 24px; */
-  /* padding: 0; */
 }
+
+.comment-textarea {
+  border-width: 0px;
+  border-radius: 3px;
+}
+
+.submit-button {
+  padding: 14px 20px;
+  font-weight: 700;
+}
+
+.leave-your-comment {
+  display: block;
+  margin-bottom: 0;
+  margin-top: -1.5rem;
+  color: #0085a1;
+  font-family: "Open Sans", BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  text-align: right;
+  font-size: 1rem;
+}
+
+/* -- TEMPLATE CLASSES-- */
 
 .caption {
   font-size: 0.875rem;
