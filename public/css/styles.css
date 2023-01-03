@@ -11557,6 +11557,13 @@ header.masthead .post-heading .meta a {
 
 /* --CUSTOM CLASSES-- */
 
+/* TODO make this pseudo-element work */
+/* .navbar-button::before {
+  display: block;
+  width: 1px;
+  background-color: red;
+} */
+
 .section-heading {
   font-size: 2.25rem;
   font-weight: 700;

@@ -20,12 +20,13 @@ async function create(req, res) {}
 // Store a newly created resource in storage.
 // TODO fix userId and articleId
 async function store(req, res) {
-  const comment = await Comment.create({
+  const articleId = req.params.id;
+  await Comment.create({
     content: req.body.content,
     userId: 1,
-    articleId: 1,
+    articleId: articleId,
   });
-  console.log(comment);
+  res.redirect(`/articles/${articleId}`);
 }
 
 // Show the form for editing the specified resource.

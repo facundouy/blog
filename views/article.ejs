@@ -30,12 +30,12 @@
     <!-- Navigation-->
     <%- include("partials/nav") %>
     <!-- Page Header-->
-    <header class="masthead" style="background-image: url('/img/post-bg.jpg')">
+    <header class="masthead" style="background-image: url('/img/colorful-food-ingredients.jpeg')">
       <div class="container position-relative px-4 px-lg-5 header-container">
         <div class="row gx-4 gx-lg-5 justify-content-center align-items-center header-container">
           <div class="col-md-10 col-lg-8 col-xl-7">
-            <div class="post-heading">
-              <h1><%= article.title.slice(0, -1) %></h1>
+            <div class="post-heading user-select-none">
+              <h1><%= article.title %></h1>
               <span class="meta">
                 Posted by <%= article.user.firstname + " " + article.user.lastname %> on <%=
                 article.user.createdAt %>
@@ -75,11 +75,11 @@
         <div class="col-md-10 col-lg-8 col-xl-7 comments-container">
           <form method="POST" class="pb-3">
             <div class="mb-2">
-              <label for="comment" class="form-label leave-your-comment">Leave your comment.</label>
+              <label for="comment" class="form-label leave-your-comment">Leave your comment</label>
               <textarea class="form-control" id="comment" name="content" rows="4"></textarea>
             </div>
             <div class="d-flex justify-content-end">
-              <button type="submit" class="btn btn-primary submit-button">Submit</button>
+              <button type="submit" class="btn btn-primary text-uppercase">Submit</button>
             </div>
           </form>
         </div>
