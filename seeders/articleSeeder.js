@@ -2,8 +2,6 @@ const { faker } = require("@faker-js/faker");
 const { Article } = require("../models/models");
 const titles = require("../titles");
 
-faker.locale = "es";
-
 module.exports = async () => {
   const articles = [];
 
@@ -22,10 +20,10 @@ module.exports = async () => {
     articles.push({
       title: titles[i],
       content: contentCreator(),
-      userId: Math.floor(10 * Math.random() + 1),
+      userId: Math.floor(10 * Math.random() + 2), // It sums 2 to prevent article author to be user 1: Anonymous.
     });
   }
 
   await Article.bulkCreate(articles);
-  console.log("[Database] Se corrió el seeder de Articles.");
+  console.log("[Database] Article seeder was ran.");
 };

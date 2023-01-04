@@ -88,7 +88,7 @@ body {
   line-height: var(--bs-body-line-height);
   color: var(--bs-body-color);
   text-align: var(--bs-body-text-align);
-  background-color: var(--bs-body-bg);
+  background-color: #eaeaea;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
@@ -11564,6 +11564,13 @@ header.masthead .post-heading .meta a {
   background-color: red;
 } */
 
+.reset-bd-button {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  color: white;
+  cursor: pointer;
+}
+
 .section-heading {
   font-size: 2.25rem;
   font-weight: 700;
@@ -11584,12 +11591,11 @@ header.masthead .post-heading .meta a {
 }
 
 .comments-container {
-  background-color: #eaeaea;
+  background-color: #d7d7d7;
 }
 
 .comment-textarea {
-  border-width: 0px;
-  border-radius: 3px;
+  background-color: #eaeaea;
 }
 
 .submit-button {

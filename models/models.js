@@ -7,13 +7,15 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST, // Ej: 127.0.0.1
     dialect: process.env.DB_CONNECTION, // Ej: mysql
-    logging: false, // Para que no aparezcan mensajes en consola.
+    logging: false, // To prevent messages on console.
   },
 );
 
 const User = require("./User")(sequelize, Model, DataTypes);
 const Article = require("./Article")(sequelize, Model, DataTypes);
 const Comment = require("./Comment")(sequelize, Model, DataTypes);
+
+// TODO once this is a branch of the first part of the blog, comments should be anonymous or something
 
 User.hasMany(Article);
 Article.belongsTo(User);
