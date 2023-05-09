@@ -1,13 +1,5 @@
 const { Comment, User } = require("../models/models");
 
-async function showJson(req, res) {
-  const comments = await Comment.findAll({
-    include: User,
-    order: [["id", "DESC"]],
-  });
-  res.json(comments);
-}
-
 // Display a listing of the resource.
 async function index(req, res) {}
 
@@ -18,7 +10,6 @@ async function show(req, res) {}
 async function create(req, res) {}
 
 // Store a newly created resource in storage.
-// TODO fix userId and articleId
 async function store(req, res) {
   const articleId = req.params.id;
   await Comment.create({
@@ -38,9 +29,6 @@ async function update(req, res) {}
 // Remove the specified resource from storage.
 async function destroy(req, res) {}
 
-// Otros handlers...
-// ...
-
 module.exports = {
   index,
   show,
@@ -49,5 +37,4 @@ module.exports = {
   edit,
   update,
   destroy,
-  showJson,
 };

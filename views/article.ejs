@@ -38,8 +38,7 @@
               <h1><%= article.title %></h1>
               <span class="meta">
                 Posted by <%= article.user.firstname + " " + article.user.lastname %> on <%=
-                article.user.createdAt %>
-                <!-- TODO use date-fns -->
+                dateFormatter(article.user.createdAt) %>
               </span>
             </div>
           </div>
@@ -65,7 +64,7 @@
           <% for (let comment of comments) { %>
           <span class="d-block"
             ><span class="fw-bold fst-italic"><%= comment.user.username %></span> on <%=
-            comment.createdAt %></span
+            dateFormatter(comment.createdAt) %></span
           >
           <p class="mt-3 mb-5"><%- comment.content %></p>
           <% } %>

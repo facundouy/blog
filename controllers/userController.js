@@ -1,7 +1,7 @@
 const { User } = require("../models/models");
 
 // Display a listing of the resource.
-async function showUsers(req, res) {
+async function index(req, res) {
   const users = await User.findAll();
   res.render("users", { users });
 }
@@ -24,11 +24,9 @@ async function update(req, res) {}
 // Remove the specified resource from storage.
 async function destroy(req, res) {}
 
-// Otros handlers...
-// ...
-
 module.exports = {
-  showUsers,
+  index,
+  show,
   create,
   store,
   edit,

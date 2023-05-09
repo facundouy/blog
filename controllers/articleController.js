@@ -1,6 +1,6 @@
 const { Article, Comment, User } = require("../models/models");
 
-async function showHome(req, res) {
+async function index(req, res) {
   const articles = await Article.findAll({ include: User, order: [["id", "DESC"]] });
   function getFirstParagraph(article) {
     const match = article.match(/<p>(.*?)<\/p>/);
@@ -12,24 +12,32 @@ async function showHome(req, res) {
   res.render("home", { articles, getFirstParagraph });
 }
 
-async function showJson(req, res) {
-  const articles = await Article.findAll({ include: User, order: [["id", "DESC"]] });
-  res.json(articles);
-}
-
-// Display a listing of the resource.
-async function index(req, res) {}
-
 // Display the specified resource.
 async function show(req, res) {
   const articleId = req.params.id;
   const article = await Article.findByPk(articleId, { include: User, order: [["id", "DESC"]] });
+
+  const dateFormatter = (date) => {
+    const options = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "numeric",
+      minute: "numeric",
+      hour12: false,
+      timeZone: "America/Montevideo",
+    };
+    const formatter = new Intl.DateTimeFormat("en-US", options);
+    const formattedDate = formatter.format(date);
+    return formattedDate;
+  };
+
   const comments = await Comment.findAll({
     include: User,
     where: { articleId },
     order: [["id", "DESC"]],
   });
-  res.render("article", { article, comments });
+  res.render("article", { article, comments, dateFormatter });
 }
 
 // Show the form for creating a new resource
@@ -58,6 +66,4 @@ module.exports = {
   edit,
   update,
   destroy,
-  showHome,
-  showJson,
 };

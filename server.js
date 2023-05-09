@@ -20,7 +20,7 @@ app.set("view engine", "ejs");
 
 routes(app);
 
-// dbInitialSetup();
+// dbInitialSetup(); // Comment or uncomment to set DB initial setup.
 
 app.listen(APP_PORT, () => {
   console.log(`\n[Express] Servidor corriendo en el puerto ${APP_PORT}.`);

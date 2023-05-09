@@ -15,8 +15,6 @@ const User = require("./User")(sequelize, Model, DataTypes);
 const Article = require("./Article")(sequelize, Model, DataTypes);
 const Comment = require("./Comment")(sequelize, Model, DataTypes);
 
-// TODO once this is a branch of the first part of the blog, comments should be anonymous or something
-
 User.hasMany(Article);
 Article.belongsTo(User);
 

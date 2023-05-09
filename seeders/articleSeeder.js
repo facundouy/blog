@@ -1,6 +1,6 @@
 const { faker } = require("@faker-js/faker");
 const { Article } = require("../models/models");
-const titles = require("../titles");
+const titles = require("./resources/titles");
 
 module.exports = async () => {
   const articles = [];
@@ -10,7 +10,7 @@ module.exports = async () => {
       const numberOfParagraphs = Math.floor(4 * Math.random() + 3);
       let articleContent = "";
       for (let i = 0; i < numberOfParagraphs; i++) {
-        // TODO add an image to each article
+        // TODO: add an image to each article
         articleContent += "<p>";
         articleContent += faker.lorem.sentences(10);
         articleContent += "</p>";

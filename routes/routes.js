@@ -8,4 +8,4 @@ module.exports = (app) => {
   app.use("/api", apiRoutes);
 };
 
-// TODO get all unexisting routes
+// TODO: get all unexisting routes
