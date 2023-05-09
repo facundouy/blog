@@ -3,7 +3,7 @@ const { User } = require("../models/models");
 // Display a listing of the resource.
 async function index(req, res) {
   const users = await User.findAll();
-  res.render("users", { users });
+  res.render("adminUsers", { users });
 }
 
 // Display the specified resource.

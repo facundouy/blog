@@ -1,37 +1,20 @@
 const { Article, Comment, User } = require("../models/models");
+const { getFirstParagraph, dateFormatter } = require("../utils/utils");
 
 async function index(req, res) {
   const articles = await Article.findAll({ include: User, order: [["id", "DESC"]] });
-  function getFirstParagraph(article) {
-    const match = article.match(/<p>(.*?)<\/p>/);
-    if (!match) {
-      return "";
-    }
-    return match[1].replace(/<\/?p>/g, "");
-  }
   res.render("home", { articles, getFirstParagraph });
+}
+
+async function adminIndex(req, res) {
+  const articles = await Article.findAll({ include: User, order: [["id", "DESC"]] });
+  res.render("adminArticles", { articles, dateFormatter });
 }
 
 // Display the specified resource.
 async function show(req, res) {
   const articleId = req.params.id;
   const article = await Article.findByPk(articleId, { include: User, order: [["id", "DESC"]] });
-
-  const dateFormatter = (date) => {
-    const options = {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-      hour: "numeric",
-      minute: "numeric",
-      hour12: false,
-      timeZone: "America/Montevideo",
-    };
-    const formatter = new Intl.DateTimeFormat("en-US", options);
-    const formattedDate = formatter.format(date);
-    return formattedDate;
-  };
-
   const comments = await Comment.findAll({
     include: User,
     where: { articleId },
@@ -60,6 +43,7 @@ async function destroy(req, res) {}
 
 module.exports = {
   index,
+  adminIndex,
   show,
   create,
   store,
